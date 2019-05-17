@@ -454,20 +454,19 @@
   </entry>
   
   <entry>
-    <title>前端开发：同构直出</title>
-    <link href="http://yyszfed.com/2019/01/15/%E5%90%8C%E6%9E%84%E7%9B%B4%E5%87%BA/"/>
-    <id>http://yyszfed.com/2019/01/15/同构直出/</id>
+    <title>同比和环比区别</title>
+    <link href="http://yyszfed.com/2019/01/15/%E5%90%8C%E6%AF%94%E5%92%8C%E7%8E%AF%E6%AF%94%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yyszfed.com/2019/01/15/同比和环比区别/</id>
     <published>2019-01-14T16:00:00.000Z</published>
-    <updated>2019-01-17T01:32:53.145Z</updated>
+    <updated>2019-01-17T01:33:01.131Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="直出"><a href="#直出" class="headerlink" title="直出"></a><font color="green">直出</font></h1><p>后端或者说服务端渲染页面并输出</p><p>直白的说在服务端获取页面需要的数据根据模板生成html页面并输出。现在服务端渲染通常使用nodejs处理。</p><p>nodejs端有很多优秀的框架 如：express ，koajs，egg</p><h1 id="同构"><a href="#同构" class="headerlink" title="同构"></a><font color="green">同构</font></h1><p>前端和直出端使用同样的代码方案。比如：vue的nuxt ，react的next</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="同比和环比区别"><a href="#同比和环比区别" class="headerlink" title="同比和环比区别"></a><font color="green">同比和环比区别</font></h1><h2 id="同比"><a href="#同比" class="headerlink" title="同比"></a>同比</h2><p>与历史同时期比较</p><p>比如：2019年1月与2018年一月相比</p><h2 id="环比"><a href="#环比" class="headerlink" title="环比"></a>环比</h2><p>表示连续2个单位周期（比如连续两月）内的量的变化比</p><p>比如：2018年12月与2018年11月相比</p><h1 id="注"><a href="#注" class="headerlink" title="注"></a><font color="green">注</font></h1><p>同比和环比，这两者所反映的虽然都是变化速度，但由于采用基期的不同，其反映的内涵是完全不同的；一般来说，环比可以与环比相比较，而不能拿同比与环比相比较；而对于同一个地方，考虑时间纵向上发展趋势的反映，则往往要把同比与环比放在一起进行对照</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;直出&quot;&gt;&lt;a href=&quot;#直出&quot; class=&quot;headerlink&quot; title=&quot;直出&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;直出&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;后端或者说服务端渲染页面并输出&lt;/p&gt;
-&lt;p&gt;直白的说在服务端获取页面需要的数据根据模
+        &lt;h1 id=&quot;同比和环比区别&quot;&gt;&lt;a href=&quot;#同比和环比区别&quot; class=&quot;headerlink&quot; title=&quot;同比和环比区别&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;同比和环比区别&lt;/font&gt;&lt;/h1&gt;&lt;h2 id=&quot;同比&quot;&gt;&lt;a href=&quot;#同比&quot; 
       
     
     </summary>
@@ -482,19 +481,20 @@
   </entry>
   
   <entry>
-    <title>同比和环比区别</title>
-    <link href="http://yyszfed.com/2019/01/15/%E5%90%8C%E6%AF%94%E5%92%8C%E7%8E%AF%E6%AF%94%E5%8C%BA%E5%88%AB/"/>
-    <id>http://yyszfed.com/2019/01/15/同比和环比区别/</id>
+    <title>前端开发：同构直出</title>
+    <link href="http://yyszfed.com/2019/01/15/%E5%90%8C%E6%9E%84%E7%9B%B4%E5%87%BA/"/>
+    <id>http://yyszfed.com/2019/01/15/同构直出/</id>
     <published>2019-01-14T16:00:00.000Z</published>
-    <updated>2019-01-17T01:33:01.131Z</updated>
+    <updated>2019-01-17T01:32:53.145Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="同比和环比区别"><a href="#同比和环比区别" class="headerlink" title="同比和环比区别"></a><font color="green">同比和环比区别</font></h1><h2 id="同比"><a href="#同比" class="headerlink" title="同比"></a>同比</h2><p>与历史同时期比较</p><p>比如：2019年1月与2018年一月相比</p><h2 id="环比"><a href="#环比" class="headerlink" title="环比"></a>环比</h2><p>表示连续2个单位周期（比如连续两月）内的量的变化比</p><p>比如：2018年12月与2018年11月相比</p><h1 id="注"><a href="#注" class="headerlink" title="注"></a><font color="green">注</font></h1><p>同比和环比，这两者所反映的虽然都是变化速度，但由于采用基期的不同，其反映的内涵是完全不同的；一般来说，环比可以与环比相比较，而不能拿同比与环比相比较；而对于同一个地方，考虑时间纵向上发展趋势的反映，则往往要把同比与环比放在一起进行对照</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="直出"><a href="#直出" class="headerlink" title="直出"></a><font color="green">直出</font></h1><p>后端或者说服务端渲染页面并输出</p><p>直白的说在服务端获取页面需要的数据根据模板生成html页面并输出。现在服务端渲染通常使用nodejs处理。</p><p>nodejs端有很多优秀的框架 如：express ，koajs，egg</p><h1 id="同构"><a href="#同构" class="headerlink" title="同构"></a><font color="green">同构</font></h1><p>前端和直出端使用同样的代码方案。比如：vue的nuxt ，react的next</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;同比和环比区别&quot;&gt;&lt;a href=&quot;#同比和环比区别&quot; class=&quot;headerlink&quot; title=&quot;同比和环比区别&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;同比和环比区别&lt;/font&gt;&lt;/h1&gt;&lt;h2 id=&quot;同比&quot;&gt;&lt;a href=&quot;#同比&quot; 
+        &lt;h1 id=&quot;直出&quot;&gt;&lt;a href=&quot;#直出&quot; class=&quot;headerlink&quot; title=&quot;直出&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;直出&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;后端或者说服务端渲染页面并输出&lt;/p&gt;
+&lt;p&gt;直白的说在服务端获取页面需要的数据根据模
       
     
     </summary>
