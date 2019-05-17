@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Vue.js &amp; Nuxt.js packages for 2019 | 用友深圳FED</title>
+  <meta name="description" content="vue.jsVue.js is an easy-to-use progressive javascript framework for building user interfaces. Check out this article by TechMagic to see how Vue.js compares with React and Angular.  Vue Dark Mode   A">
+<meta name="keywords" content="web前端,vue,笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue.js &amp; Nuxt.js packages for 2019">
+<meta property="og:url" content="http://yyszfed.com/2019/01/05/2019vue-nuxt开源库推荐/index.html">
+<meta property="og:site_name" content="用友深圳FED">
+<meta property="og:description" content="vue.jsVue.js is an easy-to-use progressive javascript framework for building user interfaces. Check out this article by TechMagic to see how Vue.js compares with React and Angular.  Vue Dark Mode   A">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-05T16:55:26.575Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue.js &amp; Nuxt.js packages for 2019">
+<meta name="twitter:description" content="vue.jsVue.js is an easy-to-use progressive javascript framework for building user interfaces. Check out this article by TechMagic to see how Vue.js compares with React and Angular.  Vue Dark Mode   A">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://yyszfed.com/2019/01/05/2019vue-nuxt开源库推荐/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="用友深圳FED" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="http://www.yyszfed.com/images/avatar.png" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">用友深圳FED</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">程序员</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 深圳, 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-nav">
+          <a href="/nav">
+            
+            <i class="icon icon-eye-fill"></i>
+            
+            <span class="menu-title">导航</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-urlset">
+          <a href="/urlset">
+            
+            <i class="icon icon-map-marker"></i>
+            
+            <span class="menu-title">常用</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/yyszfed" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2014跨年总结/">2014跨年总结</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2018跨年总结/">2018跨年总结</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mac/">mac</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/springboot/">springboot</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web前端/">web前端</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/人生/">人生</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/吴大婶/">吴大婶</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/架构设计/">架构设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研发工具/">研发工具</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研发管理/">研发管理</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/阅读分享/">阅读分享</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2014跨年总结/">2014跨年总结</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/2018跨年总结/">2018跨年总结</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyEclipse/">MyEclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLServer/">SQLServer</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitpage/">gitpage</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/idea/">idea</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java性能/">java性能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk/">jdk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsp/">jsp</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oracle/">oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/qcon/">qcon</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servlet/">servlet</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/">springboot</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/">tomcat</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-cli/">vue-cli</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web前端/">web前端</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/人生/">人生</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/吴大婶/">吴大婶</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用网址/">常用网址</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发者大会/">开发者大会</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开源/">开源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术图谱/">技术图谱</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概念/">概念</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则表达式/">正则表达式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/环境变量/">环境变量</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/研发工具/">研发工具</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/研发管理/">研发管理</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">31</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自律/">自律</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重塑基础/">重塑基础</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/阅读分享/">阅读分享</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/2014跨年总结/" style="font-size: 13px;">2014跨年总结</a> <a href="/tags/2018跨年总结/" style="font-size: 13px;">2018跨年总结</a> <a href="/tags/MyEclipse/" style="font-size: 13px;">MyEclipse</a> <a href="/tags/SQLServer/" style="font-size: 13.36px;">SQLServer</a> <a href="/tags/ajax/" style="font-size: 13px;">ajax</a> <a href="/tags/eclipse/" style="font-size: 13.18px;">eclipse</a> <a href="/tags/github/" style="font-size: 13px;">github</a> <a href="/tags/gitpage/" style="font-size: 13px;">gitpage</a> <a href="/tags/hexo/" style="font-size: 13px;">hexo</a> <a href="/tags/html/" style="font-size: 13px;">html</a> <a href="/tags/idea/" style="font-size: 13px;">idea</a> <a href="/tags/java/" style="font-size: 13.36px;">java</a> <a href="/tags/javascript/" style="font-size: 13.73px;">javascript</a> <a href="/tags/java性能/" style="font-size: 13px;">java性能</a> <a href="/tags/jdk/" style="font-size: 13px;">jdk</a> <a href="/tags/jsp/" style="font-size: 13.27px;">jsp</a> <a href="/tags/mac/" style="font-size: 13.36px;">mac</a> <a href="/tags/markdown/" style="font-size: 13px;">markdown</a> <a href="/tags/mysql/" style="font-size: 13.18px;">mysql</a> <a href="/tags/oracle/" style="font-size: 13px;">oracle</a> <a href="/tags/qcon/" style="font-size: 13px;">qcon</a> <a href="/tags/servlet/" style="font-size: 13.27px;">servlet</a> <a href="/tags/springboot/" style="font-size: 13.09px;">springboot</a> <a href="/tags/sql/" style="font-size: 13px;">sql</a> <a href="/tags/tomcat/" style="font-size: 13.27px;">tomcat</a> <a href="/tags/vue/" style="font-size: 13.09px;">vue</a> <a href="/tags/vue-cli/" style="font-size: 13px;">vue-cli</a> <a href="/tags/web前端/" style="font-size: 13.73px;">web前端</a> <a href="/tags/人生/" style="font-size: 13.91px;">人生</a> <a href="/tags/吴大婶/" style="font-size: 13.82px;">吴大婶</a> <a href="/tags/常用网址/" style="font-size: 13px;">常用网址</a> <a href="/tags/开发者大会/" style="font-size: 13px;">开发者大会</a> <a href="/tags/开源/" style="font-size: 13px;">开源</a> <a href="/tags/技术图谱/" style="font-size: 13.09px;">技术图谱</a> <a href="/tags/操作系统/" style="font-size: 13px;">操作系统</a> <a href="/tags/数据库/" style="font-size: 13.55px;">数据库</a> <a href="/tags/概念/" style="font-size: 13.09px;">概念</a> <a href="/tags/正则表达式/" style="font-size: 13px;">正则表达式</a> <a href="/tags/环境变量/" style="font-size: 13.09px;">环境变量</a> <a href="/tags/研发工具/" style="font-size: 13.09px;">研发工具</a> <a href="/tags/研发管理/" style="font-size: 13.45px;">研发管理</a> <a href="/tags/笔记/" style="font-size: 14px;">笔记</a> <a href="/tags/自律/" style="font-size: 13px;">自律</a> <a href="/tags/设计模式/" style="font-size: 13px;">设计模式</a> <a href="/tags/重塑基础/" style="font-size: 13.64px;">重塑基础</a> <a href="/tags/阅读分享/" style="font-size: 13.18px;">阅读分享</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">一月 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">一月 2012</a><span class="archive-list-count">11</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/javascript/">javascript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/01/29/javascript重塑基础系列之-柯里化/" class="title">javascript重塑基础系列之-柯里化</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-01-28T16:00:00.000Z" itemprop="datePublished">2019-01-29</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/javascript/">javascript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/01/28/javascript重塑基础系列之-变量提升/" class="title">javascript重塑基础系列之-变量提升</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-01-27T16:00:00.000Z" itemprop="datePublished">2019-01-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/javascript/">javascript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/01/27/javascript重塑基础系列之-模块化/" class="title">javascript重塑基础系列之-模块化</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-01-26T16:00:00.000Z" itemprop="datePublished">2019-01-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/javascript/">javascript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/01/26/javascript重塑基础系列之-prototype属性/" class="title">javascript重塑基础系列之-prototype属性</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-01-25T16:00:00.000Z" itemprop="datePublished">2019-01-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/javascript/">javascript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2019/01/25/javascript重塑基础系列之-立即执行函数/" class="title">javascript重塑基础系列之-立即执行函数</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-01-24T16:00:00.000Z" itemprop="datePublished">2019-01-25</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-2019vue-nuxt开源库推荐" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue.js &amp; Nuxt.js packages for 2019
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/01/05/2019vue-nuxt开源库推荐/" class="article-date">
+	  <time datetime="2019-01-04T16:00:00.000Z" itemprop="datePublished">2019-01-05</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/vue/">vue</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/vue/">vue</a>, <a class="article-tag-link" href="/tags/web前端/">web前端</a>, <a class="article-tag-link" href="/tags/笔记/">笔记</a>
+  </span>
+
+
+        
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2019/01/05/2019vue-nuxt开源库推荐/" class="leancloud_visitors"  data-flag-title="Vue.js &amp; Nuxt.js packages for 2019">0</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/01/05/2019vue-nuxt开源库推荐/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="vue-js"><a href="#vue-js" class="headerlink" title="vue.js"></a>vue.js</h2><p>Vue.js is an easy-to-use progressive javascript framework for building user interfaces. Check out this <a href="https://medium.com/@TechMagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d" target="_blank" rel="noopener">article</a> by TechMagic to see how Vue.js compares with React and Angular.</p>
+<blockquote>
+<p>Vue Dark Mode </p>
+</blockquote>
+<p>A minimalist dark design system for Vue.js. It includes base components to craft dark interfaces that the insomniac among us will love.<br><a href="https://github.com/LeCoupa/vuedarkmode" target="_blank" rel="noopener">https://github.com/LeCoupa/vuedarkmode</a>  </p>
+<blockquote>
+<p>Vetur</p>
+</blockquote>
+<p>Vue tooling for VS Code. If you’re a Vue.js power user, you gotta’ try it<br><a href="https://github.com/vuejs/vetur" target="_blank" rel="noopener">https://github.com/vuejs/vetur</a> </p>
+<blockquote>
+<p>Vue VS Code Snippets</p>
+</blockquote>
+<p>these snippets are just awesome and I’ve been using them since I started learning Vue.js<br><a href="https://github.com/sdras/vue-vscode-snippets" target="_blank" rel="noopener">https://github.com/sdras/vue-vscode-snippets</a></p>
+<blockquote>
+<p>Bootstrap-Vue</p>
+</blockquote>
+<p>Provides the most comprehensive implementations of <a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap V4</a>.<br><a href="https://bootstrap-vue.js.org/" target="_blank" rel="noopener">https://bootstrap-vue.js.org/</a></p>
+<blockquote>
+<p>Vue Native</p>
+</blockquote>
+<p>re you a fan of React Native? Say no more, Vue Native is a framework you can use like React Native to build cross platform native mobile apps using JavaScript<br><a href="https://vue-native.io/" target="_blank" rel="noopener">https://vue-native.io/</a>  </p>
+<blockquote>
+<p>NativeScript Vue</p>
+</blockquote>
+<p>And if you prefer NativeScript, here is a package you can use to create native mobile applications with both NativeScript and Vue.js.<br><a href="https://github.com/nativescript-vue/nativescript-vue" target="_blank" rel="noopener">https://github.com/nativescript-vue/nativescript-vue</a></p>
+<blockquote>
+<p>Vue Content Placeholders</p>
+</blockquote>
+<p>How do you lower your bounce rate? Use these composable components for rendering fake, and yes, progressive content while your real content is fetching.<br><a href="https://github.com/michalsnik/vue-content-placeholders" target="_blank" rel="noopener">https://github.com/michalsnik/vue-content-placeholders</a> </p>
+<blockquote>
+<p>Vue Autosuggest</p>
+</blockquote>
+<p>An awesome Vue.js autosuggest component.<br><a href="https://github.com/Educents/vue-autosuggest" target="_blank" rel="noopener">https://github.com/Educents/vue-autosuggest</a></p>
+<blockquote>
+<p>Vue Clipboard</p>
+</blockquote>
+<p>A simple Vue.js package that allows your users to copy text to clipboard base on <a href="https://clipboardjs.com/" target="_blank" rel="noopener">clipboard.js</a><br><a href="https://vue-clipboard2.inndy.tw/" target="_blank" rel="noopener">https://vue-clipboard2.inndy.tw/</a></p>
+<blockquote>
+<p>Vue Clickaway</p>
+</blockquote>
+<p>A reusable clickaway directive that detects and reacts to clicks outside of an element. Handy when we need to close a modal window or hide a dropdown select.<br><a href="https://github.com/simplesmiler/vue-clickaway" target="_blank" rel="noopener">https://github.com/simplesmiler/vue-clickaway</a></p>
+<blockquote>
+<p>Vue Waypoint</p>
+</blockquote>
+<p>The v-waypoint directive for Vue.js that triggers a function when you scroll, comes in handy when you want to trigger an animation on scroll for instance.<br><a href="https://github.com/scaccogatto/vue-waypoint" target="_blank" rel="noopener">https://github.com/scaccogatto/vue-waypoint</a></p>
+<blockquote>
+<p>Vue Virtual Scroller</p>
+</blockquote>
+<p>Fast and infinite scrolling for Vue.js applications.<br><a href="https://github.com/Akryum/vue-virtual-scroller" target="_blank" rel="noopener">https://github.com/Akryum/vue-virtual-scroller</a></p>
+<blockquote>
+<p>Vue Slideout</p>
+</blockquote>
+<p>A Vue.js implementation of <a href="https://slideout.js.org/" target="_blank" rel="noopener">Slideout.js</a>.<br><a href="https://github.com/vouill/vue-slideout" target="_blank" rel="noopener">https://github.com/vouill/vue-slideout</a></p>
+<blockquote>
+<p>Vue Swing</p>
+</blockquote>
+<p>Jealous of Tinder? Don’t worry, this package got your back. It’s a vue.js wrapper for <a href="https://github.com/gajus/swing" target="_blank" rel="noopener">Swing</a>, which is a swipeable cards interface (the swipe-left/right for the yes/no input).<br><a href="https://github.com/goweiwen/vue-swing" target="_blank" rel="noopener">https://github.com/goweiwen/vue-swing</a> </p>
+<blockquote>
+<p>Vue Quill Editor</p>
+</blockquote>
+<p>A Quill editor for Vue.js that even supports SPA and SSR.<br><a href="https://github.com/surmon-china/vue-quill-editor" target="_blank" rel="noopener">https://github.com/surmon-china/vue-quill-editor</a> </p>
+<blockquote>
+<p>Vue Stripe Checkout</p>
+</blockquote>
+<p>A Vue.js plugin for Stripe checkout.<br><a href="https://github.com/jofftiquez/vue-stripe-checkout" target="_blank" rel="noopener">https://github.com/jofftiquez/vue-stripe-checkout</a></p>
+<blockquote>
+<p>Vue Cleave Component</p>
+</blockquote>
+<p>Vue.js component for <a href="https://nosir.github.io/cleave.js/" target="_blank" rel="noopener">Cleave.js</a> that formats your input content as you’re typing (credit card formatting, date, etc.).</p>
+<blockquote>
+<p>Vuelidate</p>
+</blockquote>
+<p>Model-based validation for Vue.js, implementing form validation will feel like a breeze now.<br><a href="https://github.com/monterail/vuelidate" target="_blank" rel="noopener">https://github.com/monterail/vuelidate</a></p>
+<blockquote>
+<p>Vue.js Datepicker</p>
+</blockquote>
+<p>A simple Vue.js datepicker commponent.<br><a href="https://github.com/charliekassel/vuejs-datepicker" target="_blank" rel="noopener">https://github.com/charliekassel/vuejs-datepicker</a></p>
+<blockquote>
+<p>Vue Moment</p>
+</blockquote>
+<p>Want to use <a href="http://momentjs.com/" target="_blank" rel="noopener">Moment.js</a> in your Vue.js application without scratching your head? This package is what you need.<br><a href="https://github.com/brockpetrie/vue-moment" target="_blank" rel="noopener">https://github.com/brockpetrie/vue-moment</a></p>
+<blockquote>
+<p>Vue Numeric</p>
+</blockquote>
+<p>A Vue.js input field component to display a formatted currency value.<br><a href="https://github.com/kevinongko/vue-numeric" target="_blank" rel="noopener">https://github.com/kevinongko/vue-numeric</a></p>
+<blockquote>
+<p>Vue Slider Component</p>
+</blockquote>
+<p>10 types of slider components all made with and for Vue.js.<br><a href="https://nightcatsama.github.io/vue-slider-component/example/" target="_blank" rel="noopener">https://nightcatsama.github.io/vue-slider-component/example/</a></p>
+<blockquote>
+<p>Vue.Draggable</p>
+</blockquote>
+<p>Vue.js component that allows drag-and-drop sorting in sync with View-Model based on Sortable.js.<br><a href="https://github.com/SortableJS/Vue.Draggable" target="_blank" rel="noopener">https://github.com/SortableJS/Vue.Draggable</a></p>
+<blockquote>
+<p>Vue Draggable Resizable</p>
+</blockquote>
+<p>A Vue.js component for resizable and draggable elements, without external dependencies.<br><a href="https://github.com/mauricius/vue-draggable-resizable" target="_blank" rel="noopener">https://github.com/mauricius/vue-draggable-resizable</a></p>
+<blockquote>
+<p>Vue Color</p>
+</blockquote>
+<p>Vue.js color pickers from Sketch, Photoshop, Chrom and more.<br><a href="https://github.com/xiaokaike/vue-color" target="_blank" rel="noopener">https://github.com/xiaokaike/vue-color</a> </p>
+<blockquote>
+<p>Emoji Mart Vue</p>
+</blockquote>
+<p>Forked from React’s <a href="https://www.npmjs.com/package/emoji-mart" target="_blank" rel="noopener">emoji-mart</a>, this package is a Slack-like customizable emoji picker component for Vue.js.<br><a href="https://github.com/jm-david/emoji-mart-vue" target="_blank" rel="noopener">https://github.com/jm-david/emoji-mart-vue</a></p>
+<blockquote>
+<p>Vue YouTube Embed</p>
+</blockquote>
+<p>Based on <a href="http://brandly.github.io/angular-youtube-embed/#/" target="_blank" rel="noopener">Angular YouTube Embed</a>, this Vue.js component allows you to use YouTube iframe API.<br><a href="https://github.com/kaorun343/vue-youtube-embed" target="_blank" rel="noopener">https://github.com/kaorun343/vue-youtube-embed</a></p>
+<blockquote>
+<p>Vuetable-2</p>
+</blockquote>
+<p>Datatable component for Vue.js.<br><a href="https://www.vuetable.com/" target="_blank" rel="noopener">https://www.vuetable.com/</a></p>
+<blockquote>
+<p>Vue Chartist</p>
+</blockquote>
+<p>Simple responsive charts based on <a href="https://gionkunz.github.io/chartist-js/" target="_blank" rel="noopener">Chartist.js</a><br><a href="https://github.com/Yopadd/vue-chartist" target="_blank" rel="noopener">https://github.com/Yopadd/vue-chartist</a></p>
+<blockquote>
+<p>Vue Trend</p>
+</blockquote>
+<p>The most elegant trend chart you can find find for Vue.js<br><a href="https://github.com/QingWei-Li/vue-trend" target="_blank" rel="noopener">https://github.com/QingWei-Li/vue-trend</a></p>
+<blockquote>
+<p>Epic Spinners</p>
+</blockquote>
+<p>20 easy to use css spinners collection with Vue.js integration.<br><a href="https://github.com/epicmaxco/epic-spinners" target="_blank" rel="noopener">https://github.com/epicmaxco/epic-spinners</a>  </p>
+<blockquote>
+<p>Vue notification</p>
+</blockquote>
+<p>Success, warning and error notifications for Vue.js applications? Sure! On the right side, left side, bottom, top or center? Anywhere you want baby!<br><a href="http://vue-notification.yev.io/" target="_blank" rel="noopener">http://vue-notification.yev.io/</a></p>
+<blockquote>
+<p>Vue Popper</p>
+</blockquote>
+<p>A Vue.js popover component base on <a href="https://popper.js.org/" target="_blank" rel="noopener">popper.js</a><br><a href="https://robinck.github.io/vue-popper/" target="_blank" rel="noopener">https://robinck.github.io/vue-popper/</a></p>
+<blockquote>
+<p>Vue Countup</p>
+</blockquote>
+<p>Based on <a href="http://inorganik.github.io/countUp.js/" target="_blank" rel="noopener">CountUp.js</a>, this Vue.js allows you to create animations that display numerical data.<br><a href="https://github.com/xlsdg/vue-countup-v2" target="_blank" rel="noopener">https://github.com/xlsdg/vue-countup-v2</a></p>
+<blockquote>
+<p>Vue No SSR</p>
+</blockquote>
+<p>A Vue.js component to wrap non SSR friendly components.<br><a href="https://github.com/egoist/vue-no-ssr" target="_blank" rel="noopener">https://github.com/egoist/vue-no-ssr</a></p>
+<h2 id="Nuxt-js"><a href="#Nuxt-js" class="headerlink" title="Nuxt.js"></a>Nuxt.js</h2><p>Nuxt.js is a higher-level framework that builds on top of Vue.js and which allows you to painlessly build server-rendered applications.</p>
+<blockquote>
+<p>Create Nuxt App</p>
+</blockquote>
+<p>The easiest way to create your Nuxt.js project in seconds.<br><a href="https://github.com/nuxt/create-nuxt-app" target="_blank" rel="noopener">https://github.com/nuxt/create-nuxt-app</a></p>
+<blockquote>
+<p>Nuxt SAAS resources loader</p>
+</blockquote>
+<p>I love not having to import manually all my SASS styles every single time I create a new file and let SASS resources loader fo all the work. Lucky me, there is this module to avoid having to go through all the configuration work on Nuxt.<br><a href="https://github.com/anteriovieira/nuxt-sass-resources-loader" target="_blank" rel="noopener">https://github.com/anteriovieira/nuxt-sass-resources-loader</a></p>
+<blockquote>
+<p>Vue Dark Mode</p>
+</blockquote>
+<p>Forgot to tell you that it was also made with and for Nuxt.js.<br><a href="https://github.com/LeCoupa/vuedarkmode" target="_blank" rel="noopener">https://github.com/LeCoupa/vuedarkmode</a></p>
+<blockquote>
+<p>PWA module for Nuxt</p>
+</blockquote>
+<p>The most reliable and stable module to create your Progressive Web Application.<br><a href="https://pwa.nuxtjs.org/" target="_blank" rel="noopener">https://pwa.nuxtjs.org/</a></p>
+<blockquote>
+<p>Dotenv module</p>
+</blockquote>
+<p>Loads your .env file into your Nuxt.js application context.<br><a href="https://github.com/nuxt-community/dotenv-module" target="_blank" rel="noopener">https://github.com/nuxt-community/dotenv-module</a></p>
+<blockquote>
+<p>Senty module for Nuxt.js</p>
+</blockquote>
+<p><a href="https://medium.com/@sentry.io" target="_blank" rel="noopener">Sentry.io</a> is an Open-source error tracking, this pachage allows you to to add Sentry to your Nuxt.js application.<br><a href="https://github.com/nuxt-community/sentry-module" target="_blank" rel="noopener">https://github.com/nuxt-community/sentry-module</a></p>
+<blockquote>
+<p>Google Analytics module for Nuxt.js</p>
+</blockquote>
+<p>Integrates your Google Analytics account with your Nuxt project.<br><a href="https://github.com/nuxt-community/analytics-module" target="_blank" rel="noopener">https://github.com/nuxt-community/analytics-module</a></p>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a href="https://medium.com/the-vue-way/my-favorite-vue-js-nuxt-js-packages-for-2019-639dbbfe699e" target="_blank" rel="noopener">https://medium.com/the-vue-way/my-favorite-vue-js-nuxt-js-packages-for-2019-639dbbfe699e</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://yyszfed.com/2019/01/05/2019vue-nuxt开源库推荐/" title="Vue.js &amp; Nuxt.js packages for 2019" target="_blank" rel="external">http://yyszfed.com/2019/01/05/2019vue-nuxt开源库推荐/</a>
+    </li>
+    
+    
+      <li class="post-copyright-license">
+        <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+      </li>
+    
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="http://www.yyszfed.com/images/avatar.png" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="http://www.yyszfed.com/images/avatar.png" target="_blank"><span class="text-dark">用友深圳FED</span><small class="ml-1x">程序员</small></a></h3>
+        <div></div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2019/01/05/ReactJS-Angular5-Vue-js/" title="ReactJS vs Angular5 vs Vue.js — What to choose in 2018"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/01/04/uiueux/" title="UI UE UX"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,wechat" data-mobile-sites="weibo,wechat"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.jpeg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.jpeg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/yyszfed" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2019 用友深圳FED
+        
+        <!-- <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div> -->
+    </div>
+</footer>
+  <!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script> -->
+<!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+    <!-- <link href="https://cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet"> -->
+    <!-- <script src="https://cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js"></script> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.js"></script>
+    <script>
+        //利用 FancyBox 实现点击图片放大
+        $(document).ready(function() {
+            $('article img').not('[hidden]').not('.panel-body img').each(function () {
+                var $image = $(this);
+                var imageCaption = $image.attr('alt');
+                var $imageWrapLink = $image.parent('a');
+                if ($imageWrapLink.length < 1) {
+                var src = this.getAttribute('src');
+                var idx = src.lastIndexOf('?');
+                if (idx != -1) {
+                    src = src.substring(0, idx);
+                }
+                $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+                }
+                $imageWrapLink.attr('data-fancybox', 'images');
+                if (imageCaption) {
+                $imageWrapLink.attr('data-caption', imageCaption);
+                }
+            });
+            $().fancybox({
+                selector: '[data-fancybox="images"]',
+                hash: false,
+                loop: false,
+            }); 
+        });
+    </script>
+    
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/clipboard-use.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+<!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-min-1.2.1.js"></script>
+<script>
+AV.init({
+  appId: 'GV7WreiwIzOal3QAJs1iIswO-gzGzoHsz',
+  appKey: 'rd3OL3MOgjCqQJwTj85j4Auv'
+});
+
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+		var visitors= $('.leancloud_visitors');
+		query.greaterThanOrEqualTo("time", 0);		
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {				
+					return;
+				}
+				var data = results;
+				visitors.each(function(){
+					var url = $(this).attr('id').trim();					
+					for (var i = 0; i < data.length; i++) {
+						var object = data[i];
+						var content = object.get('time');
+						var _url = object.get('url')
+						if(url == _url){
+							$(this).text(content);
+						}
+					}
+				})
+				
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else {
+		showTime(Counter);
+	}
+}); 
+</script>
+
+    
+    
+        
+    
+    
+
+
+
+</body>
+</html>
