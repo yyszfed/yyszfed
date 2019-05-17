@@ -501,10 +501,11 @@
     
   <section id="comments">
   	
-      
+       
+    <div id="vcomments"></div>
 
     
-   
+    
   </section>
 
 
@@ -774,21 +775,28 @@ $(function() {
     
         
     
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.10.0/js/md5.min.js"></script>
-    <script type="text/javascript">
-        var gitalk = new Gitalk({
-            clientID: 'fed3217906f39fc6e769',
-            clientSecret: '56b2ce7d6867b4f7f252e84fb3be6c338703f0b1',
-            repo: 'yyszfed.github.io',
-            owner: 'wangzhikui',
-            admin: ['wangzhikui'],
-            id: md5(location.pathname),
-            distractionFreeMode: true
-        })
-        gitalk.render('comments')
-    </script>
+   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+   <script src="//cdn.jsdelivr.net/npm/valine"></script>
+   <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+     var meta = 'nick,mail,link';
+     meta = meta.split(',').filter(function (item) {
+       return GUEST.indexOf(item)>-1;
+     });
+     new Valine({
+         el: '#vcomments' ,
+         verify: false,
+         notify: false,
+         appId: '60SzcpSSN4tbvpP1cxqHVC3g-gzGzoHsz',
+         appKey: 'x6Kfdwnw6QYX1tP4Yfawd3I3',
+         placeholder: 'Just go go',
+         avatar:'mm',
+         meta:meta,
+         pageSize:'10' || 10,
+         visitor: false
+     });
+   </script>
+
     
 
     
