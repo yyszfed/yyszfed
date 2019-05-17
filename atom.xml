@@ -128,19 +128,19 @@
   </entry>
   
   <entry>
-    <title>javascript重塑基础系列之-立即执行函数</title>
-    <link href="http://yyszfed.com/2019/01/25/javascript%E9%87%8D%E5%A1%91%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E4%B9%8B-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/"/>
-    <id>http://yyszfed.com/2019/01/25/javascript重塑基础系列之-立即执行函数/</id>
+    <title>javascript重塑基础系列之-闭包</title>
+    <link href="http://yyszfed.com/2019/01/25/javascript%E9%87%8D%E5%A1%91%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E4%B9%8B-%E9%97%AD%E5%8C%85/"/>
+    <id>http://yyszfed.com/2019/01/25/javascript重塑基础系列之-闭包/</id>
     <published>2019-01-24T16:00:00.000Z</published>
-    <updated>2019-02-18T16:25:47.003Z</updated>
+    <updated>2019-02-18T16:46:37.789Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>立即执行函数</strong>：Immediately Invoked Function Expression (IIFE)，创建函数的同时立即执行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p><p>function(){…}  是一个匿名函数，包围它的一对括号将其转换为一个表达式，紧跟其后的一对括号调用了这个函数。立即执行函数也可以理解为立即调用一个匿名函数。</p><p>立即执行函数最常见的应用场景就是：将 var 变量的作用域限制于函数内，这样可以避免命名冲突。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a><font color="green">闭包</font></h1><p><strong>闭包(closure)</strong>：当外部函数返回之后，内部函数依然可以访问外部函数的变量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>; <span class="comment">//a是f1的局部变量</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;<span class="comment">//f2是函数f1的内部函数，是闭包</span></span><br><span class="line">    a = a+<span class="number">1</span>;<span class="comment">//内部函数使用了f1中的变量a</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> test = f1();</span><br><span class="line">test();<span class="comment">//2</span></span><br><span class="line">test();<span class="comment">//3</span></span><br></pre></td></tr></table></figure></p><p>代码中，外部函数 f1 只执行了一次，变量 a 设为 1 ，并将内部函数 f2 赋值给了变量 test 。由于外部函数 f1 已经执行完毕，其内部变量 a 应该在内存中被清除，然而事实并不是这样：我们每次调用 test 的时候，发现变量 a 一直在内存中，并且在累加。这就是闭包的神奇之处了！</p><h1 id="使用闭包定义私有变量"><a href="#使用闭包定义私有变量" class="headerlink" title="使用闭包定义私有变量"></a><font color="green">使用闭包定义私有变量</font></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">people</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    name = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> people();</span><br><span class="line">person.setName(<span class="string">"张三"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.name);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(person.getName());<span class="comment">//张三</span></span><br></pre></td></tr></table></figure><p>代码中，对象 person 的的 name 属性为私有属性，使用 person.name 不能直接访问。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;strong&gt;立即执行函数&lt;/strong&gt;：Immediately Invoked Function Expression (IIFE)，创建函数的同时立即执行。&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
+        &lt;h1 id=&quot;闭包&quot;&gt;&lt;a href=&quot;#闭包&quot; class=&quot;headerlink&quot; title=&quot;闭包&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;闭包&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;闭包(closure)&lt;/strong&gt;：当外部函数返回之后，内部函数
       
     
     </summary>
@@ -155,19 +155,19 @@
   </entry>
   
   <entry>
-    <title>javascript重塑基础系列之-闭包</title>
-    <link href="http://yyszfed.com/2019/01/25/javascript%E9%87%8D%E5%A1%91%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E4%B9%8B-%E9%97%AD%E5%8C%85/"/>
-    <id>http://yyszfed.com/2019/01/25/javascript重塑基础系列之-闭包/</id>
+    <title>javascript重塑基础系列之-立即执行函数</title>
+    <link href="http://yyszfed.com/2019/01/25/javascript%E9%87%8D%E5%A1%91%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E4%B9%8B-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/"/>
+    <id>http://yyszfed.com/2019/01/25/javascript重塑基础系列之-立即执行函数/</id>
     <published>2019-01-24T16:00:00.000Z</published>
-    <updated>2019-02-18T16:46:37.789Z</updated>
+    <updated>2019-02-18T16:25:47.003Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a><font color="green">闭包</font></h1><p><strong>闭包(closure)</strong>：当外部函数返回之后，内部函数依然可以访问外部函数的变量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>; <span class="comment">//a是f1的局部变量</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;<span class="comment">//f2是函数f1的内部函数，是闭包</span></span><br><span class="line">    a = a+<span class="number">1</span>;<span class="comment">//内部函数使用了f1中的变量a</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> test = f1();</span><br><span class="line">test();<span class="comment">//2</span></span><br><span class="line">test();<span class="comment">//3</span></span><br></pre></td></tr></table></figure></p><p>代码中，外部函数 f1 只执行了一次，变量 a 设为 1 ，并将内部函数 f2 赋值给了变量 test 。由于外部函数 f1 已经执行完毕，其内部变量 a 应该在内存中被清除，然而事实并不是这样：我们每次调用 test 的时候，发现变量 a 一直在内存中，并且在累加。这就是闭包的神奇之处了！</p><h1 id="使用闭包定义私有变量"><a href="#使用闭包定义私有变量" class="headerlink" title="使用闭包定义私有变量"></a><font color="green">使用闭包定义私有变量</font></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">people</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    name = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> people();</span><br><span class="line">person.setName(<span class="string">"张三"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.name);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(person.getName());<span class="comment">//张三</span></span><br></pre></td></tr></table></figure><p>代码中，对象 person 的的 name 属性为私有属性，使用 person.name 不能直接访问。</p>]]></content>
+    <content type="html"><![CDATA[<p><strong>立即执行函数</strong>：Immediately Invoked Function Expression (IIFE)，创建函数的同时立即执行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p><p>function(){…}  是一个匿名函数，包围它的一对括号将其转换为一个表达式，紧跟其后的一对括号调用了这个函数。立即执行函数也可以理解为立即调用一个匿名函数。</p><p>立即执行函数最常见的应用场景就是：将 var 变量的作用域限制于函数内，这样可以避免命名冲突。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;闭包&quot;&gt;&lt;a href=&quot;#闭包&quot; class=&quot;headerlink&quot; title=&quot;闭包&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;闭包&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;闭包(closure)&lt;/strong&gt;：当外部函数返回之后，内部函数
+        &lt;p&gt;&lt;strong&gt;立即执行函数&lt;/strong&gt;：Immediately Invoked Function Expression (IIFE)，创建函数的同时立即执行。&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
       
     
     </summary>
@@ -295,33 +295,6 @@
   </entry>
   
   <entry>
-    <title>如何选择开源协议</title>
-    <link href="http://yyszfed.com/2019/01/17/%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/"/>
-    <id>http://yyszfed.com/2019/01/17/如何选择开源协议/</id>
-    <published>2019-01-16T16:00:00.000Z</published>
-    <updated>2019-01-18T04:22:23.033Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="如何为代码选择开源许可证，这是一个问题"><a href="#如何为代码选择开源许可证，这是一个问题" class="headerlink" title="如何为代码选择开源许可证，这是一个问题"></a><font color="green">如何为代码选择开源许可证，这是一个问题</font></h1><p>世界上的开源许可证，大概有上百种。很少有人搞得清楚它们的区别。即使在最流行的六种</p><p><a href="http://www.gnu.org/licenses/gpl.html" target="_blank" rel="noopener">GPL</a><br><a href="http://en.wikipedia.org/wiki/BSD_licenses" target="_blank" rel="noopener">BSD</a><br><a href="http://en.wikipedia.org/wiki/MIT_License" target="_blank" rel="noopener">MIT</a><br><a href="http://www.mozilla.org/MPL/" target="_blank" rel="noopener">Mozilla</a><br><a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache</a><br><a href="http://www.gnu.org/copyleft/lesser.html" target="_blank" rel="noopener">LGPL</a></p><p>之中做选择，也很复杂。</p><p>乌克兰程序员Paul Bagwell，画了一张分析图</p><p>阮一峰对该图做了翻译</p><p>以下也收集了网上几张经典的开源协议图</p><h1 id="开源协议英文版-Paul-Bagwell"><a href="#开源协议英文版-Paul-Bagwell" class="headerlink" title="开源协议英文版-Paul Bagwell"></a><font color="green">开源协议英文版-Paul Bagwell</font></h1><p><img src="/images/开源协议英文.png" alt=""></p><h1 id="开源协议中文版-阮一峰翻译版"><a href="#开源协议中文版-阮一峰翻译版" class="headerlink" title="开源协议中文版-阮一峰翻译版"></a><font color="green">开源协议中文版-阮一峰翻译版</font></h1><p><img src="/images/开源协议中文.png" alt=""></p><h1 id="开源协议中文版-网络"><a href="#开源协议中文版-网络" class="headerlink" title="开源协议中文版-网络"></a><font color="green">开源协议中文版-网络</font></h1><p><img src="/images/开源协议中文1.png" alt=""></p><h1 id="开源协议英文版-网络"><a href="#开源协议英文版-网络" class="headerlink" title="开源协议英文版-网络"></a><font color="green">开源协议英文版-网络</font></h1><p><img src="/images/开源协议英文1.png" alt=""></p><h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a><font color="green">reference</font></h1><p><a href="http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;如何为代码选择开源许可证，这是一个问题&quot;&gt;&lt;a href=&quot;#如何为代码选择开源许可证，这是一个问题&quot; class=&quot;headerlink&quot; title=&quot;如何为代码选择开源许可证，这是一个问题&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;如何为代码选择开源
-      
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://yyszfed.com/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="笔记" scheme="http://yyszfed.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="开源" scheme="http://yyszfed.com/tags/%E5%BC%80%E6%BA%90/"/>
-    
-  </entry>
-  
-  <entry>
     <title>阅读分享2019-01-17（六篇）</title>
     <link href="http://yyszfed.com/2019/01/17/%E9%98%85%E8%AF%BB%E5%88%86%E4%BA%AB2/"/>
     <id>http://yyszfed.com/2019/01/17/阅读分享2/</id>
@@ -373,19 +346,19 @@
   </entry>
   
   <entry>
-    <title>sql语句：将结果中的数字转为汉字使用case语句</title>
-    <link href="http://yyszfed.com/2019/01/16/sql%E8%AF%AD%E5%8F%A5%E5%B0%86%E7%BB%93%E6%9E%9C%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97%E8%BD%AC%E4%B8%BA%E6%B1%89%E5%AD%97%E4%BD%BF%E7%94%A8case%E8%AF%AD%E5%8F%A5/"/>
-    <id>http://yyszfed.com/2019/01/16/sql语句将结果中的数字转为汉字使用case语句/</id>
-    <published>2019-01-15T16:00:00.000Z</published>
-    <updated>2019-01-16T02:45:51.160Z</updated>
+    <title>如何选择开源协议</title>
+    <link href="http://yyszfed.com/2019/01/17/%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/"/>
+    <id>http://yyszfed.com/2019/01/17/如何选择开源协议/</id>
+    <published>2019-01-16T16:00:00.000Z</published>
+    <updated>2019-01-18T04:22:23.033Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="case语句"><a href="#case语句" class="headerlink" title="case语句"></a><font color="green">case语句</font></h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">st.<span class="string">`name`</span> <span class="keyword">AS</span> 名称 ,</span><br><span class="line">st.email <span class="keyword">AS</span> 申请人邮箱 ,</span><br><span class="line">st.phone <span class="keyword">AS</span> 申请人电话 ,</span><br><span class="line">(</span><br><span class="line"><span class="keyword">CASE</span> st.<span class="string">`status`</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">0</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'未审核'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">1</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'试用'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">2</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'开通'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">8</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'驳回'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">9</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'停用'</span></span><br><span class="line"><span class="keyword">ELSE</span></span><br><span class="line"><span class="string">'null'</span></span><br><span class="line"><span class="keyword">END</span></span><br><span class="line">) 状态</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">s_table st</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">dr = <span class="number">0</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="如何为代码选择开源许可证，这是一个问题"><a href="#如何为代码选择开源许可证，这是一个问题" class="headerlink" title="如何为代码选择开源许可证，这是一个问题"></a><font color="green">如何为代码选择开源许可证，这是一个问题</font></h1><p>世界上的开源许可证，大概有上百种。很少有人搞得清楚它们的区别。即使在最流行的六种</p><p><a href="http://www.gnu.org/licenses/gpl.html" target="_blank" rel="noopener">GPL</a><br><a href="http://en.wikipedia.org/wiki/BSD_licenses" target="_blank" rel="noopener">BSD</a><br><a href="http://en.wikipedia.org/wiki/MIT_License" target="_blank" rel="noopener">MIT</a><br><a href="http://www.mozilla.org/MPL/" target="_blank" rel="noopener">Mozilla</a><br><a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache</a><br><a href="http://www.gnu.org/copyleft/lesser.html" target="_blank" rel="noopener">LGPL</a></p><p>之中做选择，也很复杂。</p><p>乌克兰程序员Paul Bagwell，画了一张分析图</p><p>阮一峰对该图做了翻译</p><p>以下也收集了网上几张经典的开源协议图</p><h1 id="开源协议英文版-Paul-Bagwell"><a href="#开源协议英文版-Paul-Bagwell" class="headerlink" title="开源协议英文版-Paul Bagwell"></a><font color="green">开源协议英文版-Paul Bagwell</font></h1><p><img src="/images/开源协议英文.png" alt=""></p><h1 id="开源协议中文版-阮一峰翻译版"><a href="#开源协议中文版-阮一峰翻译版" class="headerlink" title="开源协议中文版-阮一峰翻译版"></a><font color="green">开源协议中文版-阮一峰翻译版</font></h1><p><img src="/images/开源协议中文.png" alt=""></p><h1 id="开源协议中文版-网络"><a href="#开源协议中文版-网络" class="headerlink" title="开源协议中文版-网络"></a><font color="green">开源协议中文版-网络</font></h1><p><img src="/images/开源协议中文1.png" alt=""></p><h1 id="开源协议英文版-网络"><a href="#开源协议英文版-网络" class="headerlink" title="开源协议英文版-网络"></a><font color="green">开源协议英文版-网络</font></h1><p><img src="/images/开源协议英文1.png" alt=""></p><h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a><font color="green">reference</font></h1><p><a href="http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;case语句&quot;&gt;&lt;a href=&quot;#case语句&quot; class=&quot;headerlink&quot; title=&quot;case语句&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;case语句&lt;/font&gt;&lt;/h1&gt;&lt;figure class=&quot;highlight sql&quot;&gt;
+        &lt;h1 id=&quot;如何为代码选择开源许可证，这是一个问题&quot;&gt;&lt;a href=&quot;#如何为代码选择开源许可证，这是一个问题&quot; class=&quot;headerlink&quot; title=&quot;如何为代码选择开源许可证，这是一个问题&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;如何为代码选择开源
       
     
     </summary>
@@ -395,7 +368,7 @@
     
       <category term="笔记" scheme="http://yyszfed.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="sql" scheme="http://yyszfed.com/tags/sql/"/>
+      <category term="开源" scheme="http://yyszfed.com/tags/%E5%BC%80%E6%BA%90/"/>
     
   </entry>
   
@@ -450,6 +423,33 @@
     
     
       <category term="阅读分享" scheme="http://yyszfed.com/tags/%E9%98%85%E8%AF%BB%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sql语句：将结果中的数字转为汉字使用case语句</title>
+    <link href="http://yyszfed.com/2019/01/16/sql%E8%AF%AD%E5%8F%A5%E5%B0%86%E7%BB%93%E6%9E%9C%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97%E8%BD%AC%E4%B8%BA%E6%B1%89%E5%AD%97%E4%BD%BF%E7%94%A8case%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://yyszfed.com/2019/01/16/sql语句将结果中的数字转为汉字使用case语句/</id>
+    <published>2019-01-15T16:00:00.000Z</published>
+    <updated>2019-01-16T02:45:51.160Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="case语句"><a href="#case语句" class="headerlink" title="case语句"></a><font color="green">case语句</font></h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">st.<span class="string">`name`</span> <span class="keyword">AS</span> 名称 ,</span><br><span class="line">st.email <span class="keyword">AS</span> 申请人邮箱 ,</span><br><span class="line">st.phone <span class="keyword">AS</span> 申请人电话 ,</span><br><span class="line">(</span><br><span class="line"><span class="keyword">CASE</span> st.<span class="string">`status`</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">0</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'未审核'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">1</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'试用'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">2</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'开通'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">8</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'驳回'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">9</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'停用'</span></span><br><span class="line"><span class="keyword">ELSE</span></span><br><span class="line"><span class="string">'null'</span></span><br><span class="line"><span class="keyword">END</span></span><br><span class="line">) 状态</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">s_table st</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">dr = <span class="number">0</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;case语句&quot;&gt;&lt;a href=&quot;#case语句&quot; class=&quot;headerlink&quot; title=&quot;case语句&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;case语句&lt;/font&gt;&lt;/h1&gt;&lt;figure class=&quot;highlight sql&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yyszfed.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="http://yyszfed.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="sql" scheme="http://yyszfed.com/tags/sql/"/>
     
   </entry>
   
