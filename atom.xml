@@ -295,31 +295,6 @@
   </entry>
   
   <entry>
-    <title>阅读分享2019-01-17（六篇）</title>
-    <link href="http://yyszfed.com/2019/01/17/%E9%98%85%E8%AF%BB%E5%88%86%E4%BA%AB2/"/>
-    <id>http://yyszfed.com/2019/01/17/阅读分享2/</id>
-    <published>2019-01-16T16:00:00.000Z</published>
-    <updated>2019-01-21T05:42:45.183Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理"><a href="#从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理" class="headerlink" title="从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理"></a><a href="https://segmentfault.com/a/1190000012925872#articleHeader15" target="_blank" rel="noopener">从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理</a></h2><h2 id="待-2019-年值得学习的顶级-JavaScript-框架与主题"><a href="#待-2019-年值得学习的顶级-JavaScript-框架与主题" class="headerlink" title="(待)2019 年值得学习的顶级 JavaScript 框架与主题"></a>(待)<a href="https://juejin.im/post/5c3cbb91e51d4550932771ce" target="_blank" rel="noopener">2019 年值得学习的顶级 JavaScript 框架与主题</a></h2><h2 id="待-从输入URL到页面加载的过程？如何由一道题完善自己的前端知识体系！"><a href="#待-从输入URL到页面加载的过程？如何由一道题完善自己的前端知识体系！" class="headerlink" title="(待)从输入URL到页面加载的过程？如何由一道题完善自己的前端知识体系！"></a>(待)<a href="http://www.dailichun.com/2018/03/12/whenyouenteraurl.html" target="_blank" rel="noopener">从输入URL到页面加载的过程？如何由一道题完善自己的前端知识体系！</a></h2><h2 id="待-Tasks-microtasks-queues-and-schedules"><a href="#待-Tasks-microtasks-queues-and-schedules" class="headerlink" title="(待)Tasks, microtasks, queues and schedules"></a>(待)<a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/" target="_blank" rel="noopener">Tasks, microtasks, queues and schedules</a></h2><h2 id="2018年JavaScript生态圈调查报告出炉！"><a href="#2018年JavaScript生态圈调查报告出炉！" class="headerlink" title="2018年JavaScript生态圈调查报告出炉！"></a><a href="https://mp.weixin.qq.com/s?__biz=MzUxMzcxMzE5Ng==&amp;mid=2247489926&amp;idx=1&amp;sn=85d30069ef6bc315f36685569dc7445d&amp;chksm=f951acc5ce2625d3eddaddb170a42610dfc9b340965b00d2bd2008593c7124720803d250300a&amp;mpshare=1&amp;scene=1&amp;srcid=0115pfPYRwcMqUWPaHlSSW7o#rd" target="_blank" rel="noopener">2018年JavaScript生态圈调查报告出炉！</a></h2><h2 id="GitHub年度盘点：Deno赶超Node，跃升第四！"><a href="#GitHub年度盘点：Deno赶超Node，跃升第四！" class="headerlink" title="GitHub年度盘点：Deno赶超Node，跃升第四！"></a><a href="https://mp.weixin.qq.com/s?__biz=MzUxMzcxMzE5Ng==&amp;mid=2247490270&amp;idx=1&amp;sn=59e786008d6bba785c37dd355006e887&amp;chksm=f951af9dce26268bcffff0b936d2a9a1bc0fe990cb6ee6e3792d2ae80c1f51d89a2c9b93d1d2&amp;mpshare=1&amp;scene=1&amp;srcid=0115xmCvY2UT8sYW6ckgAYav#rd" target="_blank" rel="noopener">GitHub年度盘点：Deno赶超Node，跃升第四！</a></h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理&quot;&gt;&lt;a href=&quot;#从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理&quot; class=&quot;headerlink&quot; title=&quot;从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理&quot;&gt;&lt;/a&gt;&lt;a
-      
-    
-    </summary>
-    
-      <category term="阅读分享" scheme="http://yyszfed.com/categories/%E9%98%85%E8%AF%BB%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="阅读分享" scheme="http://yyszfed.com/tags/%E9%98%85%E8%AF%BB%E5%88%86%E4%BA%AB/"/>
-    
-  </entry>
-  
-  <entry>
     <title>shadow dom（待）</title>
     <link href="http://yyszfed.com/2019/01/17/%EF%BC%88%E5%BE%85%EF%BC%89shadowdom/"/>
     <id>http://yyszfed.com/2019/01/17/（待）shadowdom/</id>
@@ -373,29 +348,27 @@
   </entry>
   
   <entry>
-    <title>sql语句：将结果中的数字转为汉字使用case语句</title>
-    <link href="http://yyszfed.com/2019/01/16/sql%E8%AF%AD%E5%8F%A5%E5%B0%86%E7%BB%93%E6%9E%9C%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97%E8%BD%AC%E4%B8%BA%E6%B1%89%E5%AD%97%E4%BD%BF%E7%94%A8case%E8%AF%AD%E5%8F%A5/"/>
-    <id>http://yyszfed.com/2019/01/16/sql语句将结果中的数字转为汉字使用case语句/</id>
-    <published>2019-01-15T16:00:00.000Z</published>
-    <updated>2019-01-16T02:45:51.160Z</updated>
+    <title>阅读分享2019-01-17（六篇）</title>
+    <link href="http://yyszfed.com/2019/01/17/%E9%98%85%E8%AF%BB%E5%88%86%E4%BA%AB2/"/>
+    <id>http://yyszfed.com/2019/01/17/阅读分享2/</id>
+    <published>2019-01-16T16:00:00.000Z</published>
+    <updated>2019-01-21T05:42:45.183Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="case语句"><a href="#case语句" class="headerlink" title="case语句"></a><font color="green">case语句</font></h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">st.<span class="string">`name`</span> <span class="keyword">AS</span> 名称 ,</span><br><span class="line">st.email <span class="keyword">AS</span> 申请人邮箱 ,</span><br><span class="line">st.phone <span class="keyword">AS</span> 申请人电话 ,</span><br><span class="line">(</span><br><span class="line"><span class="keyword">CASE</span> st.<span class="string">`status`</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">0</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'未审核'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">1</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'试用'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">2</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'开通'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">8</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'驳回'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">9</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'停用'</span></span><br><span class="line"><span class="keyword">ELSE</span></span><br><span class="line"><span class="string">'null'</span></span><br><span class="line"><span class="keyword">END</span></span><br><span class="line">) 状态</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">s_table st</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">dr = <span class="number">0</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理"><a href="#从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理" class="headerlink" title="从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理"></a><a href="https://segmentfault.com/a/1190000012925872#articleHeader15" target="_blank" rel="noopener">从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理</a></h2><h2 id="待-2019-年值得学习的顶级-JavaScript-框架与主题"><a href="#待-2019-年值得学习的顶级-JavaScript-框架与主题" class="headerlink" title="(待)2019 年值得学习的顶级 JavaScript 框架与主题"></a>(待)<a href="https://juejin.im/post/5c3cbb91e51d4550932771ce" target="_blank" rel="noopener">2019 年值得学习的顶级 JavaScript 框架与主题</a></h2><h2 id="待-从输入URL到页面加载的过程？如何由一道题完善自己的前端知识体系！"><a href="#待-从输入URL到页面加载的过程？如何由一道题完善自己的前端知识体系！" class="headerlink" title="(待)从输入URL到页面加载的过程？如何由一道题完善自己的前端知识体系！"></a>(待)<a href="http://www.dailichun.com/2018/03/12/whenyouenteraurl.html" target="_blank" rel="noopener">从输入URL到页面加载的过程？如何由一道题完善自己的前端知识体系！</a></h2><h2 id="待-Tasks-microtasks-queues-and-schedules"><a href="#待-Tasks-microtasks-queues-and-schedules" class="headerlink" title="(待)Tasks, microtasks, queues and schedules"></a>(待)<a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/" target="_blank" rel="noopener">Tasks, microtasks, queues and schedules</a></h2><h2 id="2018年JavaScript生态圈调查报告出炉！"><a href="#2018年JavaScript生态圈调查报告出炉！" class="headerlink" title="2018年JavaScript生态圈调查报告出炉！"></a><a href="https://mp.weixin.qq.com/s?__biz=MzUxMzcxMzE5Ng==&amp;mid=2247489926&amp;idx=1&amp;sn=85d30069ef6bc315f36685569dc7445d&amp;chksm=f951acc5ce2625d3eddaddb170a42610dfc9b340965b00d2bd2008593c7124720803d250300a&amp;mpshare=1&amp;scene=1&amp;srcid=0115pfPYRwcMqUWPaHlSSW7o#rd" target="_blank" rel="noopener">2018年JavaScript生态圈调查报告出炉！</a></h2><h2 id="GitHub年度盘点：Deno赶超Node，跃升第四！"><a href="#GitHub年度盘点：Deno赶超Node，跃升第四！" class="headerlink" title="GitHub年度盘点：Deno赶超Node，跃升第四！"></a><a href="https://mp.weixin.qq.com/s?__biz=MzUxMzcxMzE5Ng==&amp;mid=2247490270&amp;idx=1&amp;sn=59e786008d6bba785c37dd355006e887&amp;chksm=f951af9dce26268bcffff0b936d2a9a1bc0fe990cb6ee6e3792d2ae80c1f51d89a2c9b93d1d2&amp;mpshare=1&amp;scene=1&amp;srcid=0115xmCvY2UT8sYW6ckgAYav#rd" target="_blank" rel="noopener">GitHub年度盘点：Deno赶超Node，跃升第四！</a></h2>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;case语句&quot;&gt;&lt;a href=&quot;#case语句&quot; class=&quot;headerlink&quot; title=&quot;case语句&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;case语句&lt;/font&gt;&lt;/h1&gt;&lt;figure class=&quot;highlight sql&quot;&gt;
+        &lt;h2 id=&quot;从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理&quot;&gt;&lt;a href=&quot;#从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理&quot; class=&quot;headerlink&quot; title=&quot;从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理&quot;&gt;&lt;/a&gt;&lt;a
       
     
     </summary>
     
-      <category term="笔记" scheme="http://yyszfed.com/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="阅读分享" scheme="http://yyszfed.com/categories/%E9%98%85%E8%AF%BB%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="笔记" scheme="http://yyszfed.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="sql" scheme="http://yyszfed.com/tags/sql/"/>
+      <category term="阅读分享" scheme="http://yyszfed.com/tags/%E9%98%85%E8%AF%BB%E5%88%86%E4%BA%AB/"/>
     
   </entry>
   
@@ -423,6 +396,33 @@
       <category term="mac" scheme="http://yyszfed.com/tags/mac/"/>
     
       <category term="mysql" scheme="http://yyszfed.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sql语句：将结果中的数字转为汉字使用case语句</title>
+    <link href="http://yyszfed.com/2019/01/16/sql%E8%AF%AD%E5%8F%A5%E5%B0%86%E7%BB%93%E6%9E%9C%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97%E8%BD%AC%E4%B8%BA%E6%B1%89%E5%AD%97%E4%BD%BF%E7%94%A8case%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://yyszfed.com/2019/01/16/sql语句将结果中的数字转为汉字使用case语句/</id>
+    <published>2019-01-15T16:00:00.000Z</published>
+    <updated>2019-01-16T02:45:51.160Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="case语句"><a href="#case语句" class="headerlink" title="case语句"></a><font color="green">case语句</font></h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">st.<span class="string">`name`</span> <span class="keyword">AS</span> 名称 ,</span><br><span class="line">st.email <span class="keyword">AS</span> 申请人邮箱 ,</span><br><span class="line">st.phone <span class="keyword">AS</span> 申请人电话 ,</span><br><span class="line">(</span><br><span class="line"><span class="keyword">CASE</span> st.<span class="string">`status`</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">0</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'未审核'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">1</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'试用'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">2</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'开通'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">8</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'驳回'</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">9</span> <span class="keyword">THEN</span></span><br><span class="line"><span class="string">'停用'</span></span><br><span class="line"><span class="keyword">ELSE</span></span><br><span class="line"><span class="string">'null'</span></span><br><span class="line"><span class="keyword">END</span></span><br><span class="line">) 状态</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">s_table st</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">dr = <span class="number">0</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;case语句&quot;&gt;&lt;a href=&quot;#case语句&quot; class=&quot;headerlink&quot; title=&quot;case语句&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;case语句&lt;/font&gt;&lt;/h1&gt;&lt;figure class=&quot;highlight sql&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yyszfed.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="笔记" scheme="http://yyszfed.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="sql" scheme="http://yyszfed.com/tags/sql/"/>
     
   </entry>
   
