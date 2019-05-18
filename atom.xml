@@ -128,19 +128,19 @@
   </entry>
   
   <entry>
-    <title>javascript重塑基础系列之-立即执行函数</title>
-    <link href="http://yyszfed.com/2019/01/25/javascript%E9%87%8D%E5%A1%91%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E4%B9%8B-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/"/>
-    <id>http://yyszfed.com/2019/01/25/javascript重塑基础系列之-立即执行函数/</id>
+    <title>javascript重塑基础系列之-闭包</title>
+    <link href="http://yyszfed.com/2019/01/25/javascript%E9%87%8D%E5%A1%91%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E4%B9%8B-%E9%97%AD%E5%8C%85/"/>
+    <id>http://yyszfed.com/2019/01/25/javascript重塑基础系列之-闭包/</id>
     <published>2019-01-24T16:00:00.000Z</published>
-    <updated>2019-02-18T16:25:47.003Z</updated>
+    <updated>2019-02-18T16:46:37.789Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>立即执行函数</strong>：Immediately Invoked Function Expression (IIFE)，创建函数的同时立即执行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p><p>function(){…}  是一个匿名函数，包围它的一对括号将其转换为一个表达式，紧跟其后的一对括号调用了这个函数。立即执行函数也可以理解为立即调用一个匿名函数。</p><p>立即执行函数最常见的应用场景就是：将 var 变量的作用域限制于函数内，这样可以避免命名冲突。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a><font color="green">闭包</font></h1><p><strong>闭包(closure)</strong>：当外部函数返回之后，内部函数依然可以访问外部函数的变量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>; <span class="comment">//a是f1的局部变量</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;<span class="comment">//f2是函数f1的内部函数，是闭包</span></span><br><span class="line">    a = a+<span class="number">1</span>;<span class="comment">//内部函数使用了f1中的变量a</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> test = f1();</span><br><span class="line">test();<span class="comment">//2</span></span><br><span class="line">test();<span class="comment">//3</span></span><br></pre></td></tr></table></figure></p><p>代码中，外部函数 f1 只执行了一次，变量 a 设为 1 ，并将内部函数 f2 赋值给了变量 test 。由于外部函数 f1 已经执行完毕，其内部变量 a 应该在内存中被清除，然而事实并不是这样：我们每次调用 test 的时候，发现变量 a 一直在内存中，并且在累加。这就是闭包的神奇之处了！</p><h1 id="使用闭包定义私有变量"><a href="#使用闭包定义私有变量" class="headerlink" title="使用闭包定义私有变量"></a><font color="green">使用闭包定义私有变量</font></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">people</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    name = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> people();</span><br><span class="line">person.setName(<span class="string">"张三"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.name);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(person.getName());<span class="comment">//张三</span></span><br></pre></td></tr></table></figure><p>代码中，对象 person 的的 name 属性为私有属性，使用 person.name 不能直接访问。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;strong&gt;立即执行函数&lt;/strong&gt;：Immediately Invoked Function Expression (IIFE)，创建函数的同时立即执行。&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
+        &lt;h1 id=&quot;闭包&quot;&gt;&lt;a href=&quot;#闭包&quot; class=&quot;headerlink&quot; title=&quot;闭包&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;闭包&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;闭包(closure)&lt;/strong&gt;：当外部函数返回之后，内部函数
       
     
     </summary>
@@ -155,19 +155,19 @@
   </entry>
   
   <entry>
-    <title>javascript重塑基础系列之-闭包</title>
-    <link href="http://yyszfed.com/2019/01/25/javascript%E9%87%8D%E5%A1%91%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E4%B9%8B-%E9%97%AD%E5%8C%85/"/>
-    <id>http://yyszfed.com/2019/01/25/javascript重塑基础系列之-闭包/</id>
+    <title>javascript重塑基础系列之-立即执行函数</title>
+    <link href="http://yyszfed.com/2019/01/25/javascript%E9%87%8D%E5%A1%91%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E4%B9%8B-%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/"/>
+    <id>http://yyszfed.com/2019/01/25/javascript重塑基础系列之-立即执行函数/</id>
     <published>2019-01-24T16:00:00.000Z</published>
-    <updated>2019-02-18T16:46:37.789Z</updated>
+    <updated>2019-02-18T16:25:47.003Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a><font color="green">闭包</font></h1><p><strong>闭包(closure)</strong>：当外部函数返回之后，内部函数依然可以访问外部函数的变量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>; <span class="comment">//a是f1的局部变量</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;<span class="comment">//f2是函数f1的内部函数，是闭包</span></span><br><span class="line">    a = a+<span class="number">1</span>;<span class="comment">//内部函数使用了f1中的变量a</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> test = f1();</span><br><span class="line">test();<span class="comment">//2</span></span><br><span class="line">test();<span class="comment">//3</span></span><br></pre></td></tr></table></figure></p><p>代码中，外部函数 f1 只执行了一次，变量 a 设为 1 ，并将内部函数 f2 赋值给了变量 test 。由于外部函数 f1 已经执行完毕，其内部变量 a 应该在内存中被清除，然而事实并不是这样：我们每次调用 test 的时候，发现变量 a 一直在内存中，并且在累加。这就是闭包的神奇之处了！</p><h1 id="使用闭包定义私有变量"><a href="#使用闭包定义私有变量" class="headerlink" title="使用闭包定义私有变量"></a><font color="green">使用闭包定义私有变量</font></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">people</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    name = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> people();</span><br><span class="line">person.setName(<span class="string">"张三"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.name);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(person.getName());<span class="comment">//张三</span></span><br></pre></td></tr></table></figure><p>代码中，对象 person 的的 name 属性为私有属性，使用 person.name 不能直接访问。</p>]]></content>
+    <content type="html"><![CDATA[<p><strong>立即执行函数</strong>：Immediately Invoked Function Expression (IIFE)，创建函数的同时立即执行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"hello world"</span>)</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p><p>function(){…}  是一个匿名函数，包围它的一对括号将其转换为一个表达式，紧跟其后的一对括号调用了这个函数。立即执行函数也可以理解为立即调用一个匿名函数。</p><p>立即执行函数最常见的应用场景就是：将 var 变量的作用域限制于函数内，这样可以避免命名冲突。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;闭包&quot;&gt;&lt;a href=&quot;#闭包&quot; class=&quot;headerlink&quot; title=&quot;闭包&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;闭包&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;闭包(closure)&lt;/strong&gt;：当外部函数返回之后，内部函数
+        &lt;p&gt;&lt;strong&gt;立即执行函数&lt;/strong&gt;：Immediately Invoked Function Expression (IIFE)，创建函数的同时立即执行。&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
       
     
     </summary>
@@ -295,33 +295,6 @@
   </entry>
   
   <entry>
-    <title>如何选择开源协议</title>
-    <link href="http://yyszfed.com/2019/01/17/%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/"/>
-    <id>http://yyszfed.com/2019/01/17/如何选择开源协议/</id>
-    <published>2019-01-16T16:00:00.000Z</published>
-    <updated>2019-01-18T04:22:23.033Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="如何为代码选择开源许可证，这是一个问题"><a href="#如何为代码选择开源许可证，这是一个问题" class="headerlink" title="如何为代码选择开源许可证，这是一个问题"></a><font color="green">如何为代码选择开源许可证，这是一个问题</font></h1><p>世界上的开源许可证，大概有上百种。很少有人搞得清楚它们的区别。即使在最流行的六种</p><p><a href="http://www.gnu.org/licenses/gpl.html" target="_blank" rel="noopener">GPL</a><br><a href="http://en.wikipedia.org/wiki/BSD_licenses" target="_blank" rel="noopener">BSD</a><br><a href="http://en.wikipedia.org/wiki/MIT_License" target="_blank" rel="noopener">MIT</a><br><a href="http://www.mozilla.org/MPL/" target="_blank" rel="noopener">Mozilla</a><br><a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache</a><br><a href="http://www.gnu.org/copyleft/lesser.html" target="_blank" rel="noopener">LGPL</a></p><p>之中做选择，也很复杂。</p><p>乌克兰程序员Paul Bagwell，画了一张分析图</p><p>阮一峰对该图做了翻译</p><p>以下也收集了网上几张经典的开源协议图</p><h1 id="开源协议英文版-Paul-Bagwell"><a href="#开源协议英文版-Paul-Bagwell" class="headerlink" title="开源协议英文版-Paul Bagwell"></a><font color="green">开源协议英文版-Paul Bagwell</font></h1><p><img src="/images/开源协议英文.png" alt=""></p><h1 id="开源协议中文版-阮一峰翻译版"><a href="#开源协议中文版-阮一峰翻译版" class="headerlink" title="开源协议中文版-阮一峰翻译版"></a><font color="green">开源协议中文版-阮一峰翻译版</font></h1><p><img src="/images/开源协议中文.png" alt=""></p><h1 id="开源协议中文版-网络"><a href="#开源协议中文版-网络" class="headerlink" title="开源协议中文版-网络"></a><font color="green">开源协议中文版-网络</font></h1><p><img src="/images/开源协议中文1.png" alt=""></p><h1 id="开源协议英文版-网络"><a href="#开源协议英文版-网络" class="headerlink" title="开源协议英文版-网络"></a><font color="green">开源协议英文版-网络</font></h1><p><img src="/images/开源协议英文1.png" alt=""></p><h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a><font color="green">reference</font></h1><p><a href="http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;如何为代码选择开源许可证，这是一个问题&quot;&gt;&lt;a href=&quot;#如何为代码选择开源许可证，这是一个问题&quot; class=&quot;headerlink&quot; title=&quot;如何为代码选择开源许可证，这是一个问题&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;如何为代码选择开源
-      
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://yyszfed.com/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="笔记" scheme="http://yyszfed.com/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="开源" scheme="http://yyszfed.com/tags/%E5%BC%80%E6%BA%90/"/>
-    
-  </entry>
-  
-  <entry>
     <title>阅读分享2019-01-17（六篇）</title>
     <link href="http://yyszfed.com/2019/01/17/%E9%98%85%E8%AF%BB%E5%88%86%E4%BA%AB2/"/>
     <id>http://yyszfed.com/2019/01/17/阅读分享2/</id>
@@ -373,29 +346,29 @@
   </entry>
   
   <entry>
-    <title>mac中连接mysql常见错误</title>
-    <link href="http://yyszfed.com/2019/01/16/mac%E4%B8%AD%E8%BF%9E%E6%8E%A5mysql%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/"/>
-    <id>http://yyszfed.com/2019/01/16/mac中连接mysql常见错误/</id>
-    <published>2019-01-15T16:00:00.000Z</published>
-    <updated>2019-01-16T08:35:55.450Z</updated>
+    <title>如何选择开源协议</title>
+    <link href="http://yyszfed.com/2019/01/17/%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE/"/>
+    <id>http://yyszfed.com/2019/01/17/如何选择开源协议/</id>
+    <published>2019-01-16T16:00:00.000Z</published>
+    <updated>2019-01-18T04:22:23.033Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a><font color="green">问题描述</font></h1><h2 id="Navicat连接本地数据库报错"><a href="#Navicat连接本地数据库报错" class="headerlink" title="Navicat连接本地数据库报错"></a><font color="green">Navicat连接本地数据库报错</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navicat for mysql[Mac]解决Can&apos;t connect to MySQL server on &apos;127.0.0.1&apos;(61 &quot;Connection refused&quot;)</span><br></pre></td></tr></table></figure><p><img src="/images/mysql1.png" alt=""></p><h1 id="处理过程"><a href="#处理过程" class="headerlink" title="处理过程"></a><font color="green">处理过程</font></h1><p>网上找了很多方法都没有解决，应该是场景不一样。</p><h2 id="步骤一：查看mysql服务是否启动（发现没有启动）"><a href="#步骤一：查看mysql服务是否启动（发现没有启动）" class="headerlink" title="步骤一：查看mysql服务是否启动（发现没有启动）"></a>步骤一：查看mysql服务是否启动（发现没有启动）</h2><h2 id="步骤二：启动mysql服务（启动报错）"><a href="#步骤二：启动mysql服务（启动报错）" class="headerlink" title="步骤二：启动mysql服务（启动报错）"></a>步骤二：启动mysql服务（启动报错）</h2><p>执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/mysql/support-files/mysql.server start</span><br></pre></td></tr></table></figure></p><p>启动过程报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR! The server quit without updating PID file (/usr/local/mysql/data/bogon.pid).</span><br></pre></td></tr></table></figure></p><h2 id="步骤三：处理启动mysql服务报错问题"><a href="#步骤三：处理启动mysql服务报错问题" class="headerlink" title="步骤三：处理启动mysql服务报错问题"></a>步骤三：处理启动mysql服务报错问题</h2><p>同样的网上找了很多问题也没发现原因，无意间点开mac上的mysql控制面板<br><img src="/images/mysql2.png" alt=""><br>看到一条很有用的信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“Warning:The /usr/local/mysql/data directory is not owned by the &apos;mysql&apos; or &apos;_mysql&apos; ”</span><br></pre></td></tr></table></figure></p><p>修改权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R mysql /usr/local/mysql/data</span><br><span class="line">sudo /usr/local/mysql/support-files/mysql.server start</span><br></pre></td></tr></table></figure></p><p>启动正常</p><h2 id="步骤四：再次使用Navicat连接（成功）"><a href="#步骤四：再次使用Navicat连接（成功）" class="headerlink" title="步骤四：再次使用Navicat连接（成功）"></a>步骤四：再次使用Navicat连接（成功）</h2><h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a><font color="green">补充</font></h1><p>停止MySQL服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/mysql/support-files/mysql.server stop</span><br></pre></td></tr></table></figure></p><p>重启MySQL服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/mysql/support-files/mysql.server restart</span><br></pre></td></tr></table></figure></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="如何为代码选择开源许可证，这是一个问题"><a href="#如何为代码选择开源许可证，这是一个问题" class="headerlink" title="如何为代码选择开源许可证，这是一个问题"></a><font color="green">如何为代码选择开源许可证，这是一个问题</font></h1><p>世界上的开源许可证，大概有上百种。很少有人搞得清楚它们的区别。即使在最流行的六种</p><p><a href="http://www.gnu.org/licenses/gpl.html" target="_blank" rel="noopener">GPL</a><br><a href="http://en.wikipedia.org/wiki/BSD_licenses" target="_blank" rel="noopener">BSD</a><br><a href="http://en.wikipedia.org/wiki/MIT_License" target="_blank" rel="noopener">MIT</a><br><a href="http://www.mozilla.org/MPL/" target="_blank" rel="noopener">Mozilla</a><br><a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache</a><br><a href="http://www.gnu.org/copyleft/lesser.html" target="_blank" rel="noopener">LGPL</a></p><p>之中做选择，也很复杂。</p><p>乌克兰程序员Paul Bagwell，画了一张分析图</p><p>阮一峰对该图做了翻译</p><p>以下也收集了网上几张经典的开源协议图</p><h1 id="开源协议英文版-Paul-Bagwell"><a href="#开源协议英文版-Paul-Bagwell" class="headerlink" title="开源协议英文版-Paul Bagwell"></a><font color="green">开源协议英文版-Paul Bagwell</font></h1><p><img src="/images/开源协议英文.png" alt=""></p><h1 id="开源协议中文版-阮一峰翻译版"><a href="#开源协议中文版-阮一峰翻译版" class="headerlink" title="开源协议中文版-阮一峰翻译版"></a><font color="green">开源协议中文版-阮一峰翻译版</font></h1><p><img src="/images/开源协议中文.png" alt=""></p><h1 id="开源协议中文版-网络"><a href="#开源协议中文版-网络" class="headerlink" title="开源协议中文版-网络"></a><font color="green">开源协议中文版-网络</font></h1><p><img src="/images/开源协议中文1.png" alt=""></p><h1 id="开源协议英文版-网络"><a href="#开源协议英文版-网络" class="headerlink" title="开源协议英文版-网络"></a><font color="green">开源协议英文版-网络</font></h1><p><img src="/images/开源协议英文1.png" alt=""></p><h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a><font color="green">reference</font></h1><p><a href="http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;问题描述&lt;/font&gt;&lt;/h1&gt;&lt;h2 id=&quot;Navicat连接本地数据库报错&quot;&gt;&lt;a href=&quot;#Na
+        &lt;h1 id=&quot;如何为代码选择开源许可证，这是一个问题&quot;&gt;&lt;a href=&quot;#如何为代码选择开源许可证，这是一个问题&quot; class=&quot;headerlink&quot; title=&quot;如何为代码选择开源许可证，这是一个问题&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;如何为代码选择开源
       
     
     </summary>
     
-      <category term="mysql" scheme="http://yyszfed.com/categories/mysql/"/>
+      <category term="笔记" scheme="http://yyszfed.com/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="mac" scheme="http://yyszfed.com/tags/mac/"/>
+      <category term="笔记" scheme="http://yyszfed.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="mysql" scheme="http://yyszfed.com/tags/mysql/"/>
+      <category term="开源" scheme="http://yyszfed.com/tags/%E5%BC%80%E6%BA%90/"/>
     
   </entry>
   
@@ -423,6 +396,33 @@
       <category term="笔记" scheme="http://yyszfed.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="sql" scheme="http://yyszfed.com/tags/sql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mac中连接mysql常见错误</title>
+    <link href="http://yyszfed.com/2019/01/16/mac%E4%B8%AD%E8%BF%9E%E6%8E%A5mysql%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF/"/>
+    <id>http://yyszfed.com/2019/01/16/mac中连接mysql常见错误/</id>
+    <published>2019-01-15T16:00:00.000Z</published>
+    <updated>2019-01-16T08:35:55.450Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a><font color="green">问题描述</font></h1><h2 id="Navicat连接本地数据库报错"><a href="#Navicat连接本地数据库报错" class="headerlink" title="Navicat连接本地数据库报错"></a><font color="green">Navicat连接本地数据库报错</font></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navicat for mysql[Mac]解决Can&apos;t connect to MySQL server on &apos;127.0.0.1&apos;(61 &quot;Connection refused&quot;)</span><br></pre></td></tr></table></figure><p><img src="/images/mysql1.png" alt=""></p><h1 id="处理过程"><a href="#处理过程" class="headerlink" title="处理过程"></a><font color="green">处理过程</font></h1><p>网上找了很多方法都没有解决，应该是场景不一样。</p><h2 id="步骤一：查看mysql服务是否启动（发现没有启动）"><a href="#步骤一：查看mysql服务是否启动（发现没有启动）" class="headerlink" title="步骤一：查看mysql服务是否启动（发现没有启动）"></a>步骤一：查看mysql服务是否启动（发现没有启动）</h2><h2 id="步骤二：启动mysql服务（启动报错）"><a href="#步骤二：启动mysql服务（启动报错）" class="headerlink" title="步骤二：启动mysql服务（启动报错）"></a>步骤二：启动mysql服务（启动报错）</h2><p>执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/mysql/support-files/mysql.server start</span><br></pre></td></tr></table></figure></p><p>启动过程报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR! The server quit without updating PID file (/usr/local/mysql/data/bogon.pid).</span><br></pre></td></tr></table></figure></p><h2 id="步骤三：处理启动mysql服务报错问题"><a href="#步骤三：处理启动mysql服务报错问题" class="headerlink" title="步骤三：处理启动mysql服务报错问题"></a>步骤三：处理启动mysql服务报错问题</h2><p>同样的网上找了很多问题也没发现原因，无意间点开mac上的mysql控制面板<br><img src="/images/mysql2.png" alt=""><br>看到一条很有用的信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“Warning:The /usr/local/mysql/data directory is not owned by the &apos;mysql&apos; or &apos;_mysql&apos; ”</span><br></pre></td></tr></table></figure></p><p>修改权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R mysql /usr/local/mysql/data</span><br><span class="line">sudo /usr/local/mysql/support-files/mysql.server start</span><br></pre></td></tr></table></figure></p><p>启动正常</p><h2 id="步骤四：再次使用Navicat连接（成功）"><a href="#步骤四：再次使用Navicat连接（成功）" class="headerlink" title="步骤四：再次使用Navicat连接（成功）"></a>步骤四：再次使用Navicat连接（成功）</h2><h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a><font color="green">补充</font></h1><p>停止MySQL服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/mysql/support-files/mysql.server stop</span><br></pre></td></tr></table></figure></p><p>重启MySQL服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/mysql/support-files/mysql.server restart</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;&lt;font color=&quot;green&quot;&gt;问题描述&lt;/font&gt;&lt;/h1&gt;&lt;h2 id=&quot;Navicat连接本地数据库报错&quot;&gt;&lt;a href=&quot;#Na
+      
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://yyszfed.com/categories/mysql/"/>
+    
+    
+      <category term="mac" scheme="http://yyszfed.com/tags/mac/"/>
+    
+      <category term="mysql" scheme="http://yyszfed.com/tags/mysql/"/>
     
   </entry>
   
